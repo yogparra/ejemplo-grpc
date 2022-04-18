@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option go_package = "/;pb";
+import "google/api/annotations.proto";
+
+message Juego {        
+    string id = 1;
+	string tipo = 2;
+	string nombre = 3;
+}
+ 
+service JuegoService {
+	rpc GetJuegoById (GetJuegoRequest) returns (GetJuegoResponse){
+		option (google.api.http) = {
+            get	:"/v1/juego"
+        };
+	}; 
+}
+
+message GetJuegoRequest {
+    string id = 1;
+}
+
+message GetJuegoResponse {
+    Juego juego = 1;
+}
