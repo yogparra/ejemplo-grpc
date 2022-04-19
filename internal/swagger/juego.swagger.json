@@ -11,7 +11,7 @@
     "application/json"
   ],
   "paths": {
-    "/v1/beneficiario": {
+    "/v1/juego": {
       "get": {
         "operationId": "JuegoService_GetJuegoById",
         "responses": {
@@ -40,9 +40,57 @@
           "JuegoService"
         ]
       }
+    },
+    "/v1/juego/create": {
+      "post": {
+        "operationId": "JuegoService_AddJuego",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/AddJuegoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddJuegoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "JuegoService"
+        ]
+      }
     }
   },
   "definitions": {
+    "AddJuegoRequest": {
+      "type": "object",
+      "properties": {
+        "juego": {
+          "$ref": "#/definitions/Juego"
+        }
+      }
+    },
+    "AddJuegoResponse": {
+      "type": "object",
+      "properties": {
+        "juego": {
+          "$ref": "#/definitions/Juego"
+        }
+      }
+    },
     "GetJuegoResponse": {
       "type": "object",
       "properties": {

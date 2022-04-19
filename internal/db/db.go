@@ -1,6 +1,7 @@
 package db
 
 import (
+	"errors"
 	"fmt"
 	"log"
 
@@ -54,4 +55,16 @@ func (s Store) GetJuegoById(id string) (juego.Juego, error) {
 		return juego.Juego{}, err
 	}
 	return rjg, nil
+}
+
+func (s Store) AddJuego(rjg juego.Juego) (juego.Juego, error) {
+	_, err := s.db.NamedQuery(`INSERT INTO juegos (id, tipo, nombre) VALUES (:id, :tipo, :nombre)`, rjg)
+	if err != nil {
+		return juego.Juego{}, errors.New("failed to insert into database")
+	}
+	return juego.Juego{
+		Id:     rjg.Id,
+		Tipo:   rjg.Tipo,
+		Nombre: rjg.Nombre,
+	}, nil
 }

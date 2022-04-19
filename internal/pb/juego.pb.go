@@ -182,6 +182,100 @@ func (x *GetJuegoResponse) GetJuego() *Juego {
 	return nil
 }
 
+type AddJuegoRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Juego *Juego `protobuf:"bytes,1,opt,name=juego,proto3" json:"juego,omitempty"`
+}
+
+func (x *AddJuegoRequest) Reset() {
+	*x = AddJuegoRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_juego_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *AddJuegoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddJuegoRequest) ProtoMessage() {}
+
+func (x *AddJuegoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_juego_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddJuegoRequest.ProtoReflect.Descriptor instead.
+func (*AddJuegoRequest) Descriptor() ([]byte, []int) {
+	return file_juego_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *AddJuegoRequest) GetJuego() *Juego {
+	if x != nil {
+		return x.Juego
+	}
+	return nil
+}
+
+type AddJuegoResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Juego *Juego `protobuf:"bytes,1,opt,name=juego,proto3" json:"juego,omitempty"`
+}
+
+func (x *AddJuegoResponse) Reset() {
+	*x = AddJuegoResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_juego_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *AddJuegoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddJuegoResponse) ProtoMessage() {}
+
+func (x *AddJuegoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_juego_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddJuegoResponse.ProtoReflect.Descriptor instead.
+func (*AddJuegoResponse) Descriptor() ([]byte, []int) {
+	return file_juego_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *AddJuegoResponse) GetJuego() *Juego {
+	if x != nil {
+		return x.Juego
+	}
+	return nil
+}
+
 var File_juego_proto protoreflect.FileDescriptor
 
 var file_juego_proto_rawDesc = []byte{
@@ -197,14 +291,24 @@ var file_juego_proto_rawDesc = []byte{
 	0x02, 0x69, 0x64, 0x22, 0x30, 0x0a, 0x10, 0x47, 0x65, 0x74, 0x4a, 0x75, 0x65, 0x67, 0x6f, 0x52,
 	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x1c, 0x0a, 0x05, 0x6a, 0x75, 0x65, 0x67, 0x6f,
 	0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x06, 0x2e, 0x4a, 0x75, 0x65, 0x67, 0x6f, 0x52, 0x05,
-	0x6a, 0x75, 0x65, 0x67, 0x6f, 0x32, 0x5d, 0x0a, 0x0c, 0x4a, 0x75, 0x65, 0x67, 0x6f, 0x53, 0x65,
-	0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x4d, 0x0a, 0x0c, 0x47, 0x65, 0x74, 0x4a, 0x75, 0x65, 0x67,
-	0x6f, 0x42, 0x79, 0x49, 0x64, 0x12, 0x10, 0x2e, 0x47, 0x65, 0x74, 0x4a, 0x75, 0x65, 0x67, 0x6f,
-	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x11, 0x2e, 0x47, 0x65, 0x74, 0x4a, 0x75, 0x65,
-	0x67, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x18, 0x82, 0xd3, 0xe4, 0x93,
-	0x02, 0x12, 0x12, 0x10, 0x2f, 0x76, 0x31, 0x2f, 0x62, 0x65, 0x6e, 0x65, 0x66, 0x69, 0x63, 0x69,
-	0x61, 0x72, 0x69, 0x6f, 0x42, 0x06, 0x5a, 0x04, 0x2f, 0x3b, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72,
-	0x6f, 0x74, 0x6f, 0x33,
+	0x6a, 0x75, 0x65, 0x67, 0x6f, 0x22, 0x2f, 0x0a, 0x0f, 0x41, 0x64, 0x64, 0x4a, 0x75, 0x65, 0x67,
+	0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1c, 0x0a, 0x05, 0x6a, 0x75, 0x65, 0x67,
+	0x6f, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x06, 0x2e, 0x4a, 0x75, 0x65, 0x67, 0x6f, 0x52,
+	0x05, 0x6a, 0x75, 0x65, 0x67, 0x6f, 0x22, 0x30, 0x0a, 0x10, 0x41, 0x64, 0x64, 0x4a, 0x75, 0x65,
+	0x67, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x1c, 0x0a, 0x05, 0x6a, 0x75,
+	0x65, 0x67, 0x6f, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x06, 0x2e, 0x4a, 0x75, 0x65, 0x67,
+	0x6f, 0x52, 0x05, 0x6a, 0x75, 0x65, 0x67, 0x6f, 0x32, 0xa4, 0x01, 0x0a, 0x0c, 0x4a, 0x75, 0x65,
+	0x67, 0x6f, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x46, 0x0a, 0x0c, 0x47, 0x65, 0x74,
+	0x4a, 0x75, 0x65, 0x67, 0x6f, 0x42, 0x79, 0x49, 0x64, 0x12, 0x10, 0x2e, 0x47, 0x65, 0x74, 0x4a,
+	0x75, 0x65, 0x67, 0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x11, 0x2e, 0x47, 0x65,
+	0x74, 0x4a, 0x75, 0x65, 0x67, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x11,
+	0x82, 0xd3, 0xe4, 0x93, 0x02, 0x0b, 0x12, 0x09, 0x2f, 0x76, 0x31, 0x2f, 0x6a, 0x75, 0x65, 0x67,
+	0x6f, 0x12, 0x4c, 0x0a, 0x08, 0x41, 0x64, 0x64, 0x4a, 0x75, 0x65, 0x67, 0x6f, 0x12, 0x10, 0x2e,
+	0x41, 0x64, 0x64, 0x4a, 0x75, 0x65, 0x67, 0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
+	0x11, 0x2e, 0x41, 0x64, 0x64, 0x4a, 0x75, 0x65, 0x67, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x22, 0x1b, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x15, 0x22, 0x10, 0x2f, 0x76, 0x31, 0x2f,
+	0x6a, 0x75, 0x65, 0x67, 0x6f, 0x2f, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x3a, 0x01, 0x2a, 0x42,
+	0x06, 0x5a, 0x04, 0x2f, 0x3b, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -219,21 +323,27 @@ func file_juego_proto_rawDescGZIP() []byte {
 	return file_juego_proto_rawDescData
 }
 
-var file_juego_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_juego_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_juego_proto_goTypes = []interface{}{
 	(*Juego)(nil),            // 0: Juego
 	(*GetJuegoRequest)(nil),  // 1: GetJuegoRequest
 	(*GetJuegoResponse)(nil), // 2: GetJuegoResponse
+	(*AddJuegoRequest)(nil),  // 3: AddJuegoRequest
+	(*AddJuegoResponse)(nil), // 4: AddJuegoResponse
 }
 var file_juego_proto_depIdxs = []int32{
 	0, // 0: GetJuegoResponse.juego:type_name -> Juego
-	1, // 1: JuegoService.GetJuegoById:input_type -> GetJuegoRequest
-	2, // 2: JuegoService.GetJuegoById:output_type -> GetJuegoResponse
-	2, // [2:3] is the sub-list for method output_type
-	1, // [1:2] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	0, // 1: AddJuegoRequest.juego:type_name -> Juego
+	0, // 2: AddJuegoResponse.juego:type_name -> Juego
+	1, // 3: JuegoService.GetJuegoById:input_type -> GetJuegoRequest
+	3, // 4: JuegoService.AddJuego:input_type -> AddJuegoRequest
+	2, // 5: JuegoService.GetJuegoById:output_type -> GetJuegoResponse
+	4, // 6: JuegoService.AddJuego:output_type -> AddJuegoResponse
+	5, // [5:7] is the sub-list for method output_type
+	3, // [3:5] is the sub-list for method input_type
+	3, // [3:3] is the sub-list for extension type_name
+	3, // [3:3] is the sub-list for extension extendee
+	0, // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_juego_proto_init() }
@@ -278,6 +388,30 @@ func file_juego_proto_init() {
 				return nil
 			}
 		}
+		file_juego_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*AddJuegoRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_juego_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*AddJuegoResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -285,7 +419,7 @@ func file_juego_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_juego_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   3,
+			NumMessages:   5,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -312,6 +446,7 @@ const _ = grpc.SupportPackageIsVersion6
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type JuegoServiceClient interface {
 	GetJuegoById(ctx context.Context, in *GetJuegoRequest, opts ...grpc.CallOption) (*GetJuegoResponse, error)
+	AddJuego(ctx context.Context, in *AddJuegoRequest, opts ...grpc.CallOption) (*AddJuegoResponse, error)
 }
 
 type juegoServiceClient struct {
@@ -331,9 +466,19 @@ func (c *juegoServiceClient) GetJuegoById(ctx context.Context, in *GetJuegoReque
 	return out, nil
 }
 
+func (c *juegoServiceClient) AddJuego(ctx context.Context, in *AddJuegoRequest, opts ...grpc.CallOption) (*AddJuegoResponse, error) {
+	out := new(AddJuegoResponse)
+	err := c.cc.Invoke(ctx, "/JuegoService/AddJuego", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // JuegoServiceServer is the server API for JuegoService service.
 type JuegoServiceServer interface {
 	GetJuegoById(context.Context, *GetJuegoRequest) (*GetJuegoResponse, error)
+	AddJuego(context.Context, *AddJuegoRequest) (*AddJuegoResponse, error)
 }
 
 // UnimplementedJuegoServiceServer can be embedded to have forward compatible implementations.
@@ -342,6 +487,9 @@ type UnimplementedJuegoServiceServer struct {
 
 func (*UnimplementedJuegoServiceServer) GetJuegoById(context.Context, *GetJuegoRequest) (*GetJuegoResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetJuegoById not implemented")
+}
+func (*UnimplementedJuegoServiceServer) AddJuego(context.Context, *AddJuegoRequest) (*AddJuegoResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddJuego not implemented")
 }
 
 func RegisterJuegoServiceServer(s *grpc.Server, srv JuegoServiceServer) {
@@ -366,6 +514,24 @@ func _JuegoService_GetJuegoById_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _JuegoService_AddJuego_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddJuegoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(JuegoServiceServer).AddJuego(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/JuegoService/AddJuego",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(JuegoServiceServer).AddJuego(ctx, req.(*AddJuegoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _JuegoService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "JuegoService",
 	HandlerType: (*JuegoServiceServer)(nil),
@@ -373,6 +539,10 @@ var _JuegoService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetJuegoById",
 			Handler:    _JuegoService_GetJuegoById_Handler,
+		},
+		{
+			MethodName: "AddJuego",
+			Handler:    _JuegoService_AddJuego_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

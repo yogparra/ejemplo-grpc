@@ -1,5 +1,9 @@
 package juego
 
+import (
+	"context"
+)
+
 type Juego struct {
 	Id     string
 	Tipo   string
@@ -8,8 +12,7 @@ type Juego struct {
 
 type Store interface {
 	GetJuegoById(id string) (Juego, error)
-	//InsertJuego(rjg Juego) (Juego, error)
-	//DeleteJuego(id string) error
+	AddJuego(rjg Juego) (Juego, error)
 }
 
 type Service struct {
@@ -30,22 +33,10 @@ func (s Service) GetJuegoById(id string) (Juego, error) {
 	return rjg, nil
 }
 
-/*
-func (s Service) InsertJuego(rjg Juego) (Juego, error) {
-	rjg, err := s.Store.InsertJuego(rjg)
+func (s Service) AddJuego(ctx context.Context, rjg Juego) (Juego, error) {
+	rjg, err := s.Store.AddJuego(rjg)
 	if err != nil {
 		return Juego{}, err
 	}
 	return rjg, nil
 }
-*/
-
-/*
-func (s Service) DeleteJuego(id string) error {
-	err := s.Store.DeleteJuego(id)
-	if err != nil {
-		return err
-	}
-	return nil
-}
-*/

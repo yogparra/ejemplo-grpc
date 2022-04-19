@@ -13,6 +13,7 @@ import (
 
 type JuegoService interface {
 	GetJuegoById(id string) (juego.Juego, error)
+	AddJuego(ctx context.Context, rjg juego.Juego) (juego.Juego, error)
 }
 
 type Handler struct {
@@ -43,7 +44,7 @@ func (h Handler) Serve() error {
 }
 
 func (h Handler) GetJuegoById(ctx context.Context, req *pbjg.GetJuegoRequest) (*pbjg.GetJuegoResponse, error) {
-	log.Print("Get Juego gRPC Endpoint Hit")
+	log.Print("Get Juego gRPC endpoint")
 	juego, err := h.JuegoService.GetJuegoById(req.Id)
 	if err != nil {
 		return &pbjg.GetJuegoResponse{}, err
@@ -53,6 +54,27 @@ func (h Handler) GetJuegoById(ctx context.Context, req *pbjg.GetJuegoRequest) (*
 			Id:     juego.Id,
 			Tipo:   juego.Tipo,
 			Nombre: juego.Nombre,
+		},
+	}, nil
+}
+
+func (h Handler) AddJuego(ctx context.Context, req *pbjg.AddJuegoRequest) (*pbjg.AddJuegoResponse, error) {
+	log.Print("Add Juego gRPC endpoint")
+
+	newRjg, err := h.JuegoService.AddJuego(ctx, juego.Juego{
+		Id:     req.Juego.Id,
+		Tipo:   req.Juego.Tipo,
+		Nombre: req.Juego.Nombre,
+	})
+	if err != nil {
+		log.Print("Error al insertar un juego en la base de datos")
+		return &pbjg.AddJuegoResponse{}, err
+	}
+	return &pbjg.AddJuegoResponse{
+		Juego: &pbjg.Juego{
+			Id:     newRjg.Id,
+			Tipo:   newRjg.Tipo,
+			Nombre: newRjg.Nombre,
 		},
 	}, nil
 }
